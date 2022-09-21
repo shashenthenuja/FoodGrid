@@ -1,42 +1,45 @@
-package edu.curtin.foodgrid;
+package edu.curtin.foodgrid.fragments;
 
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import edu.curtin.foodgrid.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MainHeader#newInstance} factory method to
+ * Use the {@link Res#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainHeader extends Fragment {
+public class Res extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private String resName;
+    private Drawable resImage;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    ArrayList<FoodData> list = new ArrayList<>();
-
-    public MainHeader() {
+    public Res() {
         // Required empty public constructor
     }
 
-    public MainHeader(ArrayList<FoodData> list) {
-        // Required empty public constructor
-        this.list = list;
+    public Res(String name, Drawable image) {
+        resName = name;
+        resImage = image;
     }
 
     /**
@@ -45,11 +48,11 @@ public class MainHeader extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainHeader.
+     * @return A new instance of fragment Res.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainHeader newInstance(String param1, String param2) {
-        MainHeader fragment = new MainHeader();
+    public static Res newInstance(String param1, String param2) {
+        Res fragment = new Res();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,14 +72,19 @@ public class MainHeader extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(linearLayoutManager.HORIZONTAL);
-        View view = inflater.inflate(R.layout.fragment_main_header, container, false);
-        RecyclerView rv = view.findViewById(R.id.mainFoodRecycler);
-        rv.setLayoutManager(linearLayoutManager);
-        MainFoodAdapter myAdapter = new MainFoodAdapter(list);
-        rv.setAdapter(myAdapter);
-        return view;
+
+        return inflater.inflate(R.layout.fragment_res, container, false);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        View view = getView();
+        if (view != null) {
+            ImageView image = (ImageView) view.findViewById(R.id.fragResImage);
+            TextView name = (TextView) view.findViewById(R.id.fragResName);
+            image.setImageDrawable(resImage);
+            name.setText(resName);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package edu.curtin.foodgrid;
+package edu.curtin.foodgrid.fragments.helpers;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+import edu.curtin.foodgrid.FoodData;
+import edu.curtin.foodgrid.R;
+import edu.curtin.foodgrid.ResData;
 
 public class MainFoodAdapter extends RecyclerView.Adapter<MainFoodViewHolder>{
 
-    private ArrayList<FoodData> list = new ArrayList<>();
+    private static Random random = new Random();
+    private ArrayList<ResData> list = new ArrayList<>();
 
-    public MainFoodAdapter(ArrayList<FoodData> list) {
+    public MainFoodAdapter(ArrayList<ResData> list) {
         this.list = list;
     }
 
@@ -28,12 +34,13 @@ public class MainFoodAdapter extends RecyclerView.Adapter<MainFoodViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MainFoodViewHolder holder, int position) {
-        holder.image.setImageDrawable(list.get(position).getImage());
-        holder.name.setText(list.get(position).getName());
+        int randomBound = list.get(position).getList().size() - 1;
+        holder.image.setImageDrawable(list.get(position).getList().get(random.nextInt(randomBound)).getImage());
+        holder.name.setText(list.get(position).getList().get(random.nextInt(randomBound)).getName());
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.size()-6;
     }
 }

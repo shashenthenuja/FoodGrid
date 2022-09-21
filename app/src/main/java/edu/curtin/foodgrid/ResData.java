@@ -36,4 +36,8 @@ public class ResData {
     public  FoodData getFood(int id) {
         return list.get(id);
     }
+
+    public ArrayList<FoodData> getList() {
+        return list;
+    }
 }

@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import edu.curtin.foodgrid.FoodData;
 import edu.curtin.foodgrid.R;
 import edu.curtin.foodgrid.ResData;
+import edu.curtin.foodgrid.fragments.FoodItem;
 import edu.curtin.foodgrid.fragments.Res;
-import edu.curtin.foodgrid.fragments.ResFood;
 
 public class ResFoodAdapter extends RecyclerView.Adapter<ResFoodViewHolder>{
 
@@ -34,22 +35,22 @@ public class ResFoodAdapter extends RecyclerView.Adapter<ResFoodViewHolder>{
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FoodData foodData = null;
+                for (FoodData food:res.getList()
+                ) {
+                    if (food.getName().matches(myViewHolder.name.getText().toString())) {
+                        foodData = food;
+                    }
+                }
                 if (res != null) {
                     AppCompatActivity activity = (AppCompatActivity) view.getContext();
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
                     FragmentTransaction t = fragmentManager.beginTransaction();
                     t.replace(R.id.header, new Res(myViewHolder.name.getText().toString(), myViewHolder.image.getDrawable()),null);
+                    t.replace(R.id.body, new FoodItem(foodData),null);
                     t.commitAllowingStateLoss();
                     t.addToBackStack(null);
-
-                    /*AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
-                    FragmentManager fragmentManager2 = activity2.getSupportFragmentManager();
-                    FragmentTransaction s = fragmentManager2.beginTransaction();
-                    s.replace(R.id.body, new ResFood(resObject),null);
-                    s.commitAllowingStateLoss();
-                    s.addToBackStack(null);*/
                 }
-
             }
         });
         return myViewHolder;

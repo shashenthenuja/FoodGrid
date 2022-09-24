@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import edu.curtin.foodgrid.MainActivity;
 import edu.curtin.foodgrid.R;
 import edu.curtin.foodgrid.fragments.helpers.ResAdapter;
 import edu.curtin.foodgrid.ResData;
@@ -82,24 +83,6 @@ public class MainBody extends Fragment {
         ResAdapter myAdapter = new ResAdapter(list);
         rv.setAdapter(myAdapter);
         return view;
-    }
-
-    public void setBodyFragment(Fragment fragment) {
-        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-        FragmentTransaction t = fragmentManager.beginTransaction();
-        t.replace(R.id.body, fragment, null);
-        t.commitAllowingStateLoss();
-    }
-
-    public void replaceFragment()
-    {
-        MainHeader yourFragment = new MainHeader();
-        FragmentManager fragmentManager=getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        fragmentTransaction.replace(R.id.body, yourFragment,null);
-
-        fragmentTransaction.commitAllowingStateLoss();
     }
 
 }

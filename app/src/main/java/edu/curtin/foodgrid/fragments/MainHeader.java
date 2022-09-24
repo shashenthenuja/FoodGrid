@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import edu.curtin.foodgrid.FoodData;
+import edu.curtin.foodgrid.MainActivity;
 import edu.curtin.foodgrid.ResData;
 import edu.curtin.foodgrid.fragments.helpers.MainFoodAdapter;
 import edu.curtin.foodgrid.R;

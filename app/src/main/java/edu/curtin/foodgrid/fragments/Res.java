@@ -1,7 +1,6 @@
 package edu.curtin.foodgrid.fragments;
 
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import edu.curtin.foodgrid.MainActivity;
 import edu.curtin.foodgrid.R;
 
 /**
@@ -72,7 +72,6 @@ public class Res extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_res, container, false);
     }
 
@@ -81,8 +80,8 @@ public class Res extends Fragment {
         super.onStart();
         View view = getView();
         if (view != null) {
-            ImageView image = (ImageView) view.findViewById(R.id.fragResImage);
-            TextView name = (TextView) view.findViewById(R.id.fragResName);
+            ImageView image = (ImageView) view.findViewById(R.id.resHeaderImage);
+            TextView name = (TextView) view.findViewById(R.id.resHeaderText);
             image.setImageDrawable(resImage);
             name.setText(resName);
         }

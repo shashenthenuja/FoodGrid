@@ -48,15 +48,9 @@ public class ResAdapter extends RecyclerView.Adapter<ResViewHolder> {
                     FragmentManager fragmentManager = activity.getSupportFragmentManager();
                     FragmentTransaction t = fragmentManager.beginTransaction();
                     t.replace(R.id.header, new Res(resObject.getName().toString(), resObject.getImage()),null);
+                    t.replace(R.id.body, new ResFood(resObject),null);
                     t.commitAllowingStateLoss();
                     t.addToBackStack(null);
-
-                    AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
-                    FragmentManager fragmentManager2 = activity2.getSupportFragmentManager();
-                    FragmentTransaction s = fragmentManager2.beginTransaction();
-                    s.replace(R.id.body, new ResFood(resObject),null);
-                    s.commitAllowingStateLoss();
-                    s.addToBackStack(null);
                 }
 
             }

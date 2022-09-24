@@ -19,12 +19,5 @@ public class MainFoodViewHolder extends RecyclerView.ViewHolder{
         super(itemView);
         image = itemView.findViewById(R.id.foodItem);
         name = itemView.findViewById(R.id.itemName);
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 }

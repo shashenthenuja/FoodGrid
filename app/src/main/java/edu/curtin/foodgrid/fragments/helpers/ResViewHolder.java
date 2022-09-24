@@ -25,13 +25,5 @@ public class ResViewHolder extends RecyclerView.ViewHolder {
         image = itemView.findViewById(R.id.resImage);
         name = itemView.findViewById(R.id.resName);
 
-        /*itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Toast.makeText(view.getContext(), name.getText().toString(), Toast.LENGTH_LONG).show();
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.header, new Res(name.getText().toString(), image.getDrawable()),null).commitAllowingStateLoss();
-            }
-        });*/
     }
 }

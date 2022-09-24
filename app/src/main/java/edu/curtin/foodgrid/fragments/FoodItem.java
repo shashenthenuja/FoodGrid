@@ -2,12 +2,21 @@ package edu.curtin.foodgrid.fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+import edu.curtin.foodgrid.FoodData;
 import edu.curtin.foodgrid.R;
 
 /**
@@ -26,8 +35,18 @@ public class FoodItem extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FoodData food;
+    public static ArrayList<FoodData> list = new ArrayList<>();
+    private int qty = 1;
+    private int price = 0;
+
     public FoodItem() {
         // Required empty public constructor
+    }
+
+    public FoodItem(FoodData food) {
+        // Required empty public constructor
+        this.food = food;
     }
 
     /**
@@ -62,5 +81,63 @@ public class FoodItem extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_food_item, container, false);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        View view = getView();
+        if (view != null) {
+            TextView name = (TextView) view.findViewById(R.id.selectFoodName);
+            TextView qtyText = (TextView) view.findViewById(R.id.qtyText);
+            Button add = (Button) view.findViewById(R.id.addCartBtn);
+            FloatingActionButton plusBtn = (FloatingActionButton) view.findViewById(R.id.plusBtn);
+            FloatingActionButton minusBtn = (FloatingActionButton) view.findViewById(R.id.minusBtn);
+            if (food.getQty() > 1) {
+                qty = food.getQty();
+            }
+            name.setText(food.getName());
+            qtyText.setText(String.valueOf(qty));
+            add.setText("Add " + String.valueOf(qty) + " to cart : LKR " + String.valueOf(food.getPrice() * qty));
+
+            plusBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    qty++;
+                    price = food.getPrice() * qty;
+                    qtyText.setText(String.valueOf(qty));
+                    add.setText("Add " + String.valueOf(qty) + " to cart : LKR " + String.valueOf(price));
+
+                }
+            });
+
+            minusBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (qty > 1) {
+                        qty--;
+                        price = food.getPrice() * qty;
+                        qtyText.setText(String.valueOf(qty));
+                        add.setText("Add " + String.valueOf(qty) + " to cart : LKR " + String.valueOf(price));
+                    }
+                }
+            });
+
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                    FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                    ResFood.hasItems = true;
+                    food.setQty(qty);
+                    if (!list.contains(food)){
+                        list.add(food);
+                    }
+                    ResFood.foodData = list;
+                    fragmentManager.popBackStack();
+                }
+            });
+
+        }
     }
 }

@@ -2,17 +2,27 @@ package edu.curtin.foodgrid.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import edu.curtin.foodgrid.FoodData;
+import edu.curtin.foodgrid.MainActivity;
 import edu.curtin.foodgrid.R;
 import edu.curtin.foodgrid.ResData;
-import edu.curtin.foodgrid.fragments.helpers.ResAdapter;
 import edu.curtin.foodgrid.fragments.helpers.ResFoodAdapter;
 
 /**
@@ -32,6 +42,8 @@ public class ResFood extends Fragment {
     private String mParam2;
 
     private ResData res;
+    public static boolean hasItems = false;
+    public static ArrayList<FoodData> foodData = new ArrayList<>();
 
     public ResFood() {
         // Required empty public constructor
@@ -66,6 +78,8 @@ public class ResFood extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -78,5 +92,31 @@ public class ResFood extends Fragment {
         ResFoodAdapter myAdapter = new ResFoodAdapter(res);
         rv.setAdapter(myAdapter);
         return view;
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        View view = getView();
+        if (view != null) {
+            Button checkOut = (Button) view.findViewById(R.id.viewCartBtn);
+            if (hasItems) {
+                checkOut.setVisibility(View.VISIBLE);
+                checkOut.setText("View Cart (" + String.valueOf(foodData.size()) + ")");
+                checkOut.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                        FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                        FragmentTransaction t = fragmentManager.beginTransaction();
+                        t.replace(R.id.body, new Cart(foodData),null);
+                        t.commitAllowingStateLoss();
+                        t.addToBackStack(null);
+                    }
+                });
+            }else {
+                checkOut.setVisibility(View.GONE);
+            }
+        }
     }
 }

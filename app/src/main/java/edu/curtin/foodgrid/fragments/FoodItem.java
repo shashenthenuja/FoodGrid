@@ -26,6 +26,14 @@ import edu.curtin.foodgrid.R;
  */
 public class FoodItem extends Fragment {
 
+    /* *******************************************************************
+     * File:       FoodItem.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Fragment to show each food item to add to cart
+     ***********************************************************************/
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -88,6 +96,8 @@ public class FoodItem extends Fragment {
         super.onStart();
         View view = getView();
         if (view != null) {
+
+            // get quantity and add to cart
             TextView name = (TextView) view.findViewById(R.id.selectFoodName);
             TextView qtyText = (TextView) view.findViewById(R.id.qtyText);
             Button add = (Button) view.findViewById(R.id.addCartBtn);
@@ -100,6 +110,7 @@ public class FoodItem extends Fragment {
             qtyText.setText(String.valueOf(qty));
             add.setText("Add " + String.valueOf(qty) + " to cart : LKR " + String.valueOf(food.getPrice() * qty));
 
+            // increase quantity
             plusBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -111,6 +122,7 @@ public class FoodItem extends Fragment {
                 }
             });
 
+            // decrease quantity
             minusBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -123,6 +135,7 @@ public class FoodItem extends Fragment {
                 }
             });
 
+            // add to cart and go to previous fragment
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

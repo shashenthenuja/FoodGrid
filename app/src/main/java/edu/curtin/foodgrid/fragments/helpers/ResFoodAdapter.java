@@ -20,6 +20,14 @@ import edu.curtin.foodgrid.fragments.Res;
 
 public class ResFoodAdapter extends RecyclerView.Adapter<ResFoodViewHolder>{
 
+    /* *******************************************************************
+     * File:       ResFoodAdapater.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Recyclerview adapter of each restaurant
+     ***********************************************************************/
+
     private final ResData res;
 
     public ResFoodAdapter(ResData res) {
@@ -32,6 +40,8 @@ public class ResFoodAdapter extends RecyclerView.Adapter<ResFoodViewHolder>{
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.res_food_list,parent,false);
         ResFoodViewHolder myViewHolder = new ResFoodViewHolder(view);
+
+        // select the restaurant
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

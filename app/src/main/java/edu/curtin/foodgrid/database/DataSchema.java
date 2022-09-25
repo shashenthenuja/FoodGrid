@@ -2,6 +2,14 @@ package edu.curtin.foodgrid.database;
 
 public class DataSchema {
 
+    /* *******************************************************************
+     * File:       DataSchema.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Database schema class containing database tables
+     ***********************************************************************/
+
     public static class restaurantTable{
         public static final String NAME = "restaurants";
         public static class Cols{

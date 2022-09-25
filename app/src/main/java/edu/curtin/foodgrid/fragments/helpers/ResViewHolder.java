@@ -18,6 +18,14 @@ import edu.curtin.foodgrid.fragments.ResFood;
 
 public class ResViewHolder extends RecyclerView.ViewHolder {
 
+    /* *******************************************************************
+     * File:       ResViewHolder.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Viewholder of restaurants
+     ***********************************************************************/
+
     ImageView image;
     TextView name;
     public ResViewHolder(@NonNull View itemView) {

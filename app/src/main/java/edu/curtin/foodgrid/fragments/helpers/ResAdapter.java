@@ -22,6 +22,14 @@ import edu.curtin.foodgrid.fragments.helpers.ResViewHolder;
 
 public class ResAdapter extends RecyclerView.Adapter<ResViewHolder> {
 
+    /* *******************************************************************
+     * File:       ResAdapter.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Recyclerview adapter of the food item
+     ***********************************************************************/
+
     private ArrayList<ResData> list = new ArrayList<>();
     public ResAdapter(ArrayList<ResData> list) {
         this.list = list;
@@ -33,6 +41,8 @@ public class ResAdapter extends RecyclerView.Adapter<ResViewHolder> {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.res_list,parent,false);
         ResViewHolder myViewHolder = new ResViewHolder(view);
+
+        // select food item
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

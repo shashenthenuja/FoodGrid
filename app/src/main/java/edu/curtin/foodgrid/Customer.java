@@ -3,6 +3,15 @@ package edu.curtin.foodgrid;
 import java.util.ArrayList;
 
 public class Customer {
+
+    /* *******************************************************************
+     * File:       Customer.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Class for each customer
+     ***********************************************************************/
+
     String email;
     String password;
     boolean isLoggedIn;

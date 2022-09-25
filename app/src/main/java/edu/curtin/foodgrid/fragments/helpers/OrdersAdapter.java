@@ -24,6 +24,14 @@ import edu.curtin.foodgrid.fragments.OrderDetails;
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersViewHolder>{
 
+    /* *******************************************************************
+     * File:       OrdersAdapter.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Recyclerview adapter to show past orders of customer
+     ***********************************************************************/
+
     private ArrayList<OrderHistory> orders;
     private ArrayList<String> orderNumbers;
     public OrdersAdapter(ArrayList<OrderHistory> orders, ArrayList<String> orderNumbers) {
@@ -37,6 +45,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersViewHolder>{
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.order_list_layout,parent,false);
         OrdersViewHolder myViewHolder = new OrdersViewHolder(view);
+
+        // select past order
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -13,6 +13,14 @@ import edu.curtin.foodgrid.R;
 
 public class MainFoodViewHolder extends RecyclerView.ViewHolder{
 
+    /* *******************************************************************
+     * File:       MainFoodViewHolder.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Viewholder of random food in main menu
+     ***********************************************************************/
+
     ImageView image;
     TextView name;
     public MainFoodViewHolder(@NonNull View itemView) {

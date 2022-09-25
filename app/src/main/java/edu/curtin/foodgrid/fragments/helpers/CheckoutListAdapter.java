@@ -14,6 +14,14 @@ import edu.curtin.foodgrid.R;
 
 public class CheckoutListAdapter extends RecyclerView.Adapter<CheckoutListViewHolder> {
 
+    /* *******************************************************************
+     * File:       CheckoutListAdapter.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Recyclerview adapter of items in the checkoutlist
+     ***********************************************************************/
+
     private ArrayList<FoodData> foodData;
 
     public CheckoutListAdapter(ArrayList<FoodData> foodData) {

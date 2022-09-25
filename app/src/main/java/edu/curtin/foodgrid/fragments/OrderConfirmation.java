@@ -30,6 +30,14 @@ import edu.curtin.foodgrid.database.DataModel;
  */
 public class OrderConfirmation extends Fragment {
 
+    /* *******************************************************************
+     * File:       OrderConfirmation.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Fragment for every new order confirmation
+     ***********************************************************************/
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -100,6 +108,8 @@ public class OrderConfirmation extends Fragment {
             Button profile = (Button) view.findViewById(R.id.viewOrderHistory);
             image.setImageResource(R.drawable.order_confirmed);
             name.setText(orderIdDisplay);
+
+            // get customers cart and add to order list and add new record to database
             ArrayList<FoodData> foodData = customer.getCart();
             if (!foodData.isEmpty()) {
                 for (FoodData food:foodData
@@ -110,13 +120,8 @@ public class OrderConfirmation extends Fragment {
             ResFood.foodData.clear();
             FoodItem.list.clear();
 
-            AppCompatActivity activity = (AppCompatActivity) view.getContext();
-            FragmentManager fragmentManager = activity.getSupportFragmentManager();
-            int count = fragmentManager.getBackStackEntryCount();
-            for(int i = count; i < 1; i--) {
-                fragmentManager.popBackStack();
-            }
 
+            // go to home
             home.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -129,6 +134,7 @@ public class OrderConfirmation extends Fragment {
                 }
             });
 
+            // go to customer profile order history
             profile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

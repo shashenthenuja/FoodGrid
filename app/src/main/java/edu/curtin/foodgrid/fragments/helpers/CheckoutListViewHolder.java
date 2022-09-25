@@ -10,6 +10,14 @@ import edu.curtin.foodgrid.R;
 
 public class CheckoutListViewHolder extends RecyclerView.ViewHolder {
 
+    /* *******************************************************************
+     * File:       CheckoutListViewHolder.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Viewholder of items in the checkout list
+     ***********************************************************************/
+
     TextView itemName;
     TextView qty;
     TextView price;

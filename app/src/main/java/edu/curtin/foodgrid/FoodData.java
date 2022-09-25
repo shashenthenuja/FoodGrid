@@ -3,6 +3,15 @@ package edu.curtin.foodgrid;
 import android.graphics.drawable.Drawable;
 
 public class FoodData {
+
+    /* *******************************************************************
+     * File:       FoodData.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Class for each food item in a restaurant
+     ***********************************************************************/
+
     private int id;
     private int resId;
     private String name;

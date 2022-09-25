@@ -34,6 +34,14 @@ import edu.curtin.foodgrid.database.DataModel;
  */
 public class Login extends Fragment {
 
+    /* *******************************************************************
+     * File:       Login.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Fragment to show login/register screen
+     ***********************************************************************/
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -110,14 +118,17 @@ public class Login extends Fragment {
                 price = price + (food.getPrice() * food.getQty());
             }
 
+            // login button
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     email = emailInput.getText();
                     password = passwordInput.getText();
+                    // error checking
                     if (!checkEmpty(email.toString(), password.toString()) && isValidEmail(email.toString())) {
                         ArrayList<Customer> customerList = customerDb.getCustomers();
                         Customer currentCustomer = null;
+                        // validate user
                         for (Customer customer:customerList
                         ) {
                             if (customer.getEmail().matches(email.toString()) && customer.getPassword().matches(password.toString())) {
@@ -127,6 +138,7 @@ public class Login extends Fragment {
                                 MainActivity.setLoggedIn(true);
                             }
                         }
+                        // if validated redirect to checkout fragment
                         if (currentCustomer != null) {
                             AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
                             FragmentManager fragmentManager2 = activity2.getSupportFragmentManager();
@@ -156,14 +168,17 @@ public class Login extends Fragment {
                 }
             });
 
+            // register button
             register.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     email = emailInput.getText();
                     password = passwordInput.getText();
+                    // error checking
                     if (!checkEmpty(email.toString(), password.toString()) && isValidEmail(email.toString())) {
                         ArrayList<Customer> customerList = customerDb.getCustomers();
                         Customer currentCustomer = null;
+                        // check if user is already registered
                         for (Customer customer:customerList
                         ) {
                             if (customer.getEmail().matches(email.toString()) && customer.getPassword().matches(password.toString())) {
@@ -174,6 +189,7 @@ public class Login extends Fragment {
                             Snackbar notify = Snackbar.make(getView(), "User is already registered!", Snackbar.LENGTH_LONG);
                             notify.show();
                         }else {
+                            // make a new customer and add to the database
                             customer = new Customer(email.toString(), password.toString());
                             customer.addFood(foodData);
                             customerDb.addCustomer(customer);
@@ -182,6 +198,7 @@ public class Login extends Fragment {
                             Snackbar notify = Snackbar.make(getView(), "Registered Successfully!", Snackbar.LENGTH_LONG);
                             notify.show();
 
+                            // redirect to confirm order fragment
                             AppCompatActivity activity2 = (AppCompatActivity) view.getContext();
                             FragmentManager fragmentManager2 = activity2.getSupportFragmentManager();
                             FragmentTransaction s = fragmentManager2.beginTransaction();
@@ -208,10 +225,12 @@ public class Login extends Fragment {
         }
     }
 
+    // method to validate an email
     public boolean isValidEmail(CharSequence email) {
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 
+    // method to check if 2 strings are empty
     public boolean checkEmpty(String a, String b) {
         if (a.isEmpty()) {
             return true;

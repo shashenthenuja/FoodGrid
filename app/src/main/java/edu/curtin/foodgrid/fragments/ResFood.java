@@ -32,6 +32,14 @@ import edu.curtin.foodgrid.fragments.helpers.ResFoodAdapter;
  */
 public class ResFood extends Fragment {
 
+    /* *******************************************************************
+     * File:       ResFood.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Fragment for each food item
+     ***********************************************************************/
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -78,8 +86,6 @@ public class ResFood extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
@@ -100,12 +106,14 @@ public class ResFood extends Fragment {
         View view = getView();
         if (view != null) {
             Button checkOut = (Button) view.findViewById(R.id.viewCartBtn);
+            // show button if items are in the cart
             if (hasItems) {
                 checkOut.setVisibility(View.VISIBLE);
                 checkOut.setText("View Cart (" + String.valueOf(foodData.size()) + ")");
                 checkOut.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        // replace current fragment and go to Cart
                         AppCompatActivity activity = (AppCompatActivity) view.getContext();
                         FragmentManager fragmentManager = activity.getSupportFragmentManager();
                         FragmentTransaction t = fragmentManager.beginTransaction();

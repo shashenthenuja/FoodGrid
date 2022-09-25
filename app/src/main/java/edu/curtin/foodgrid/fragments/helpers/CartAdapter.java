@@ -19,6 +19,14 @@ import edu.curtin.foodgrid.fragments.Res;
 
 public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
+    /* *******************************************************************
+     * File:       CartAdapter.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Recyclerview adapter of the items in the cart
+     ***********************************************************************/
+
     private ArrayList<FoodData> foodData;
 
     public CartAdapter(ArrayList<FoodData> foodData) {
@@ -31,6 +39,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.cart_layout,parent,false);
         CartViewHolder myViewHolder = new CartViewHolder(view);
+
+        // remove item
         myViewHolder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,6 +49,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
             }
         });
 
+        // edit item
         myViewHolder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

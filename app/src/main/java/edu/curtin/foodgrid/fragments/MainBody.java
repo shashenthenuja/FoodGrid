@@ -27,6 +27,14 @@ import edu.curtin.foodgrid.ResData;
  */
 public class MainBody extends Fragment {
 
+    /* *******************************************************************
+     * File:       MainBody.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Fragment to show all the list of restaurants
+     ***********************************************************************/
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";

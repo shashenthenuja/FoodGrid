@@ -11,6 +11,14 @@ import edu.curtin.foodgrid.R;
 
 public class ResFoodViewHolder extends RecyclerView.ViewHolder{
 
+    /* *******************************************************************
+     * File:       ResFoodViewHolder.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Viewholder of the food item
+     ***********************************************************************/
+
     ImageView image;
     TextView name;
     TextView price;

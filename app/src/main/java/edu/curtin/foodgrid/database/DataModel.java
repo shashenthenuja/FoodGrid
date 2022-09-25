@@ -19,6 +19,15 @@ import edu.curtin.foodgrid.database.DataSchema.orderHistory;
 import edu.curtin.foodgrid.fragments.Res;
 
 public class DataModel {
+
+    /* *******************************************************************
+     * File:       DataModel.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       DataModel class of SQLiteDatabase to add data to database
+     ***********************************************************************/
+
     SQLiteDatabase db;
 
     public void load(Context context){

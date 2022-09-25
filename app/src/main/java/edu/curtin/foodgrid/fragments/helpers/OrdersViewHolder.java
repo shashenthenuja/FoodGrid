@@ -10,6 +10,14 @@ import edu.curtin.foodgrid.R;
 
 public class OrdersViewHolder extends RecyclerView.ViewHolder{
 
+    /* *******************************************************************
+     * File:       OrdersViewHolder.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Viewholder for past order
+     ***********************************************************************/
+
     TextView orderNumber;
     public OrdersViewHolder(@NonNull View itemView) {
         super(itemView);

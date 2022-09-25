@@ -15,6 +15,15 @@ import edu.curtin.foodgrid.database.DataSchema.customer;
 import edu.curtin.foodgrid.database.DataSchema.orderHistory;
 
 public class DataCursor extends CursorWrapper {
+
+    /* *******************************************************************
+     * File:       DataCursor.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       DataCursor wrapper class to get data from the database
+     ***********************************************************************/
+
     public DataCursor(Cursor cursor) {
         super(cursor);
     }

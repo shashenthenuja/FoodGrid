@@ -23,6 +23,14 @@ import edu.curtin.foodgrid.fragments.ResFood;
 
 public class MainFoodAdapter extends RecyclerView.Adapter<MainFoodViewHolder>{
 
+    /* *******************************************************************
+     * File:       MainFoodAdapter.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Recyclerview adapter of random food in the main menu
+     ***********************************************************************/
+
     private static Random random = new Random();
     private ArrayList<ResData> list = new ArrayList<>();
 
@@ -37,6 +45,7 @@ public class MainFoodAdapter extends RecyclerView.Adapter<MainFoodViewHolder>{
         View view = layoutInflater.inflate(R.layout.main_item_list,parent,false);
         MainFoodViewHolder myViewHolder = new MainFoodViewHolder(view);
 
+        // select food and redirect to corresponding item in respective restaurant
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

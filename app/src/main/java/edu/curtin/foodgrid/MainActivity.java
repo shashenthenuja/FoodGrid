@@ -15,6 +15,14 @@ import edu.curtin.foodgrid.fragments.MainHeader;
 
 public class MainActivity extends AppCompatActivity {
 
+    /* *******************************************************************
+     * File:       MainActivity.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Main Activity of the app
+     ***********************************************************************/
+
     ArrayList<ResData> resList = new ArrayList<>();
     private DataModel resDb;
     public static boolean hasLogged = false;
@@ -28,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         resDb.load(getApplicationContext());
         resList = resDb.getResList();
 
+        // get image name and add corresponding drawable image
         for (ResData resData:resList
              ) {
             resData.setImage(getResources().getDrawable(resData.getImageName()));
@@ -38,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
         setFood(resList);
 
+        // set header and body fragments
         FragmentManager headerFrag = getSupportFragmentManager();
         MainHeader mainHeader = (MainHeader) headerFrag.findFragmentById(R.id.header);
         if (mainHeader == null) {
@@ -57,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         hasLogged = loggedIn;
     }
 
+    // set food data to the restaurants
     public void setFood(ArrayList<ResData> resList) {
         for (ResData res:resList
         ) {

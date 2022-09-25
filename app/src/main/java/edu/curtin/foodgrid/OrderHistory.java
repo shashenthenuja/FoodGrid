@@ -2,6 +2,14 @@ package edu.curtin.foodgrid;
 
 public class OrderHistory {
 
+    /* *******************************************************************
+     * File:       OrderHistory.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Class for each order for customer
+     ***********************************************************************/
+
     private String email;
     private String orderNumber;
     private String foodName;

@@ -10,6 +10,15 @@ import androidx.core.content.res.ResourcesCompat;
 import java.util.ArrayList;
 
 public class ResData {
+
+    /* *******************************************************************
+     * File:       ResData.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Class for each restaurant
+     ***********************************************************************/
+
     private int id;
     private String name;
     private int image;

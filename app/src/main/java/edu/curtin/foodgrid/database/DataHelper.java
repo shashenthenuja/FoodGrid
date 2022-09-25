@@ -20,6 +20,14 @@ import java.util.ArrayList;
 
 public class DataHelper extends SQLiteOpenHelper {
 
+    /* *******************************************************************
+     * File:       DataHelper.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       DataHelper class to execute sql commands to the database
+     ***********************************************************************/
+
     private Context context;
     private static final int VERSION = 1;
     private static final String DATABASE_NAME = "foodGrid.db";

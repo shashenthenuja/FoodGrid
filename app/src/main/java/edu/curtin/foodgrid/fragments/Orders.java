@@ -30,6 +30,14 @@ import edu.curtin.foodgrid.fragments.helpers.OrdersAdapter;
  */
 public class Orders extends Fragment {
 
+    /* *******************************************************************
+     * File:       Orders.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Fragment for all orders of a customer
+     ***********************************************************************/
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -75,6 +83,8 @@ public class Orders extends Fragment {
         }
         customerDb = new DataModel();
         customerDb.load(getActivity());
+
+        // get data from the database and add to list
         if (MainActivity.customer != null) {
             orders = customerDb.getOrders(MainActivity.customer.getEmail());
             for (OrderHistory order:orders

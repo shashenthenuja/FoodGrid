@@ -11,6 +11,14 @@ import edu.curtin.foodgrid.R;
 
 public class CartViewHolder extends RecyclerView.ViewHolder {
 
+    /* *******************************************************************
+     * File:       CartViewHolder.java
+     * Author:     G.G.T.Shashen
+     * Created:    20/09/2022
+     * Modified:   25/09/2022
+     * Desc:       Viewholder of the items in the cart
+     ***********************************************************************/
+
     TextView itemName;
     TextView qty;
     TextView price;

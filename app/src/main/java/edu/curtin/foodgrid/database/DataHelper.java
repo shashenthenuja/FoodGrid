@@ -51,8 +51,6 @@ public class DataHelper extends SQLiteOpenHelper {
     }
 
     public void insertData(SQLiteDatabase resDb) {
-        /*ResData res1 = new ResData(1, "Burger King", R.drawable.bkbanner);
-        res1.addFood(new FoodData(1,"Fries", 10, R.drawable.img1));*/
         addRes(new ResData(1, "Burger King", R.drawable.bkbanner), resDb);
         addRes(new ResData(2, "Dominos Pizza", R.drawable.dominosbanner), resDb);
         addRes(new ResData(3, "Dunkin Donuts", R.drawable.dunkinbanner), resDb);
